@@ -24,7 +24,5 @@
   </project>
 
   <project remote="somlabs" revision="rocko" name="meta-somlabs" path="sources/meta-somlabs"/>
-  <project remote="somlabs-extra" revision="rocko" name="meta-somlabs" path="sources/meta-somlabs-extra"/>
-    <linkfile dest="fsl-setup-release.sh" src="fsl-setup-release.sh"/>
-  </project>
+  <project remote="somlabs-extra" revision="rocko" name="meta-somlabs-extra" path="sources/meta-somlabs-extra"/>
 </manifest>
