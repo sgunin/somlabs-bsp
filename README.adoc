@@ -12,17 +12,15 @@ To get the BSP you need to have `repo` installed and use it as:
 Install the `repo` utility:
 
 [source,console]
-$: mkdir ~/bin
-$: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-$: chmod a+x ~/bin/repo
+$: apt update
+$: apt install -y repo
 
 Download the BSP source:
 
 [source,console]
-$: PATH=${PATH}:~/bin
 $: mkdir somlabs-bsp
 $: cd somlabs-bsp
-$: repo init -u https://github.com/SoMLabs/somlabs-bsp -b rocko
+$: repo init -u https://github.com/sgunin/somlabs-bsp.git -b rocko
 $: repo sync
 
 At the end of the commands you have every metadata you need to start work with.
@@ -30,17 +28,24 @@ At the end of the commands you have every metadata you need to start work with.
 To start a simple image build:
 
 [source,console]
-$: MACHINE=visionsom6ull DISTRO=somlabs-linux EULA=1 source setup-environment build
+$: MACHINE=visionsom6ull DISTRO=somlabs-linux EULA=1 source fsl-setup-release.sh -b build
 
-Add meta-layers:
-[source,console]
-$: bitbake-layers add-layer ../sources/meta-somlabs
-$: bitbake-layers add-layer ../sources/meta-openembedded/meta-python
-$: bitbake-layers add-layer ../sources/meta-openembedded/meta-networking
-
-(You can also edit `conf/bblayers.conf` by hand.)
-
-Buid image:
-
+Buid Lab image
 [source,console]
 $: bitbake lab-image
+
+or build console image
+[source,console]
+$: bitbake console-image
+
+or build QT5 image
+[source,console]
+$: bitbake qt5-image
+
+After build finished, list result images catalog
+[source,console]
+$: ls -la tmp/deploy/images/visionsom6ull/
+
+and write SD card image to SD card
+[source,console]
+$: sudo dd of=/dev/sdc if=tmp/deploy/images/myd-y6ul14x14/core-image-base-myd-y6ul14x14.wic bs=1M iflag=fullblock oflag=direct conv=fsync
