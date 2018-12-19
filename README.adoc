@@ -30,15 +30,22 @@ To start a simple image build:
 [source,console]
 $: MACHINE=visionsom6ull DISTRO=somlabs-linux EULA=1 source fsl-setup-release.sh -b build
 
-Buid image
-Lab image
+Buid Lab image
 [source,console]
 $: bitbake lab-image
 
-Console image
+or build console image
 [source,console]
 $: bitbake console-image
 
-QT5 image
+or build QT5 image
 [source,console]
 $: bitbake qt5-image
+
+After build finished, list result images catalog
+[source,console]
+$: ls -la tmp/deploy/images/visionsom6ull/
+
+and write SD card image to SD card
+[source,console]
+$: sudo dd of=/dev/sdc if=tmp/deploy/images/myd-y6ul14x14/core-image-base-myd-y6ul14x14.wic bs=1M iflag=fullblock oflag=direct conv=fsync
