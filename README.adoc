@@ -34,8 +34,10 @@ Buid image
 1. Lab image
 [source,console]
 $: bitbake lab-image
+
 2. Console image
 [source,console]
 $: bitbake console-image
+
 3. QT5 image
 $: bitbake qt5-image
