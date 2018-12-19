@@ -31,13 +31,14 @@ To start a simple image build:
 $: MACHINE=visionsom6ull DISTRO=somlabs-linux EULA=1 source fsl-setup-release.sh -b build
 
 Buid image
-1. Lab image
+Lab image
 [source,console]
 $: bitbake lab-image
 
-2. Console image
+Console image
 [source,console]
 $: bitbake console-image
 
-3. QT5 image
+QT5 image
+[source,console]
 $: bitbake qt5-image
