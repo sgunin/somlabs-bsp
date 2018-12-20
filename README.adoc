@@ -44,9 +44,13 @@ $: cd tmp/deploy/images/visionsom6ull/
 $: ls -la .
 
 The directory contains the following files:
+
 console-image-visionsom6ull.wic.gz - symbol link to GZipped SD card image
+
 somlabs-visionsom-6ul*.dtb - symbol links device tree binary compiled files
+
 u-boot*.imx* - symbol links to UBoot binary files
+
 zImage - symbol link to kernel image
 
 Еhe file name includes the build date and time. For example, the full name of the file to write to the SD card will be console-image-visionsom6ull-20181220081500.rootfs.wic.gz.
