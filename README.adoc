@@ -53,7 +53,8 @@ u-boot*.imx* - symbol links to UBoot binary files
 
 zImage - symbol link to kernel image
 
-Еhe file name includes the build date and time. For example, the full name of the file to write to the SD card will be console-image-visionsom6ull-20181220081500.rootfs.wic.gz.
+The file name includes the build date and time. 
+For example, the full name of the file to write to the SD card will be console-image-visionsom6ull-20181220081500.rootfs.wic.gz.
 
 To write to the SD card, you need to run the following command
 [source,console]
