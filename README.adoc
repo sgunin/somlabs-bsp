@@ -30,11 +30,7 @@ To start a simple image build:
 [source,console]
 $: MACHINE=visionsom6ull DISTRO=somlabs-linux EULA=1 source fsl-setup-release.sh -b build
 
-Buid Lab image
-[source,console]
-$: bitbake lab-image
-
-or build console image
+Build console image
 [source,console]
 $: bitbake console-image
 
