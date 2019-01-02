@@ -12,17 +12,15 @@ To get the BSP you need to have `repo` installed and use it as:
 Install the `repo` utility:
 
 [source,console]
-$: mkdir ~/bin
-$: curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-$: chmod a+x ~/bin/repo
+$: apt update
+$: apt install -y repo
 
 Download the BSP source:
 
 [source,console]
-$: PATH=${PATH}:~/bin
 $: mkdir somlabs-bsp
 $: cd somlabs-bsp
-$: repo init -u https://github.com/SoMLabs/somlabs-bsp -b rocko
+$: repo init -u https://github.com/sgunin/somlabs-bsp.git -b rocko
 $: repo sync
 
 At the end of the commands you have every metadata you need to start work with.
@@ -30,17 +28,37 @@ At the end of the commands you have every metadata you need to start work with.
 To start a simple image build:
 
 [source,console]
-$: MACHINE=visionsom6ull DISTRO=somlabs-linux EULA=1 source setup-environment build
+$: MACHINE=visionsom6ull DISTRO=somlabs-linux EULA=1 source fsl-setup-release.sh -b build
 
-Add meta-layers:
+Build console image
 [source,console]
-$: bitbake-layers add-layer ../sources/meta-somlabs
-$: bitbake-layers add-layer ../sources/meta-openembedded/meta-python
-$: bitbake-layers add-layer ../sources/meta-openembedded/meta-networking
+$: bitbake console-image
 
-(You can also edit `conf/bblayers.conf` by hand.)
-
-Buid image:
-
+or build QT5 image
 [source,console]
-$: bitbake lab-image
+$: bitbake qt5-image
+
+After the build is finished, you can browse the catalog with the build results
+[source,console]
+$: cd tmp/deploy/images/visionsom6ull/
+$: ls -la .
+
+The directory contains the following files:
+
+console-image-visionsom6ull.wic.gz - symbol link to GZipped SD card image
+
+somlabs-visionsom-6ul*.dtb - symbol links device tree binary compiled files
+
+u-boot*.imx* - symbol links to UBoot binary files
+
+zImage - symbol link to kernel image
+
+The file name includes the build date and time. 
+For example, the full name of the file to write to the SD card will be console-image-visionsom6ull-20181220081500.rootfs.wic.gz.
+
+To write to the SD card, you need to run the following command
+[source,console]
+$: cd tmp/deploy/images/visionsom6ull/
+$: zcat console-image-visionsom6ull-20181220081500.rootfs.wic.gz | sudo dd of=/dev/sdb bs=1M iflag=fullblock oflag=direct conv=fsync
+
+where /dev/sdb is the name of the SDCard device in the system (can be obtained using the command lsblk).
