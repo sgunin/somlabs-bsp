@@ -17,12 +17,11 @@
   <project remote="freescale" revision="rocko" name="meta-freescale-3rdparty" path="sources/meta-freescale-3rdparty"/>
   <project remote="freescale" revision="rocko" name="meta-freescale-distro" path="sources/meta-freescale-distro"/>
   <project remote="freescale" revision="rocko" name="Documentation" path="sources/Documentation"/>
-  <project remote="freescale" revision="rocko" name="fsl-community-bsp-base" path="sources/base">
-    <linkfile dest="setup-environment" src="setup-environment"/>
-  </project>
+  <project remote="freescale" revision="rocko" name="fsl-community-bsp-base" path="sources/base"/>
 
   <project remote="somlabs" revision="rocko" name="meta-somlabs" path="sources/meta-somlabs"/>
+
   <project remote="somlabs-extra" revision="rocko" name="somlabs-extra" path="sources/meta-somlabs-extra">
-    <linkfile dest="fsl-setup-release.sh" src="fsl-setup-release.sh"/>
+    <linkfile dest="setup-environment" src="setup-environment"/>
   </project>
 </manifest>
