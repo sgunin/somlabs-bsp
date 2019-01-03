@@ -18,8 +18,8 @@ $: apt install -y repo
 Download the BSP source:
 
 [source,console]
-$: mkdir somlabs-bsp
-$: cd somlabs-bsp
+$: mkdir somlabs
+$: cd somlabs
 $: repo init -u https://github.com/sgunin/somlabs-bsp.git -b rocko
 $: repo sync
 
@@ -28,7 +28,7 @@ At the end of the commands you have every metadata you need to start work with.
 To start a simple image build:
 
 [source,console]
-$: MACHINE=visionsom6ull DISTRO=somlabs-linux EULA=1 source fsl-setup-release.sh -b build
+$: . setup-environment build
 
 Build console image
 [source,console]
@@ -40,8 +40,7 @@ $: bitbake qt5-image
 
 After the build is finished, you can browse the catalog with the build results
 [source,console]
-$: cd tmp/deploy/images/visionsom6ull/
-$: ls -la .
+$: ls -la tmp/deploy/images/visionsom6ull/
 
 The directory contains the following files:
 
