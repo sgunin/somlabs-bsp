@@ -28,22 +28,27 @@ $: cd somlabs
 $: repo init -u https://github.com/sgunin/somlabs-bsp.git -b thud
 $: repo sync
 
-Thud repos is Yocto 2.6.
+Thud repos is Yocto 2.6.1. https://www.yoctoproject.org/docs/?section=developer-manuals
 
 At the end of the commands you have every metadata you need to start work with.
 
-To start a simple image build:
+Setup build environment:
 
 [source,console]
 $: . setup-environment build
 
-Build console image
+Build standart SomLabs console image
 [source,console]
 $: bitbake console-image
 
-or build QT5 image
+or standart SomLabs QT5 image
 [source,console]
 $: bitbake qt5-image
+
+You can also build extended images (from meta-somlabs-extra):
+[source,console]
+$: bitbake console-extraimage
+$: bitbake console-extraimage-debug
 
 After the build is finished, you can browse the catalog with the build results
 [source,console]
