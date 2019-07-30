@@ -48,7 +48,7 @@ $: bitbake console-extraimage-debug
 
 After the build is finished, you can browse the catalog with the build results
 [source,console]
-$: ls -la tmp/deploy/images/visionsom6ull/
+$: ls -la ../tmp/deploy/images/visionsom6ull/
 
 The directory contains the following files:
 
@@ -65,7 +65,7 @@ For example, the full name of the file to write to the SD card will be console-i
 
 To write to the SD card, you need to run the following command
 [source,console]
-$: cd tmp/deploy/images/visionsom6ull/
+$: cd ../tmp/deploy/images/visionsom6ull/
 $: zcat console-image-visionsom6ull-20181220081500.rootfs.wic.gz | sudo dd of=/dev/sdb bs=1M iflag=fullblock oflag=direct conv=fsync
 
 where /dev/sdb is the name of the SDCard device in the system (can be obtained using the command lsblk).
