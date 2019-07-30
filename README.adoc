@@ -41,10 +41,6 @@ Build standart SomLabs console image
 [source,console]
 $: bitbake console-image
 
-or standart SomLabs QT5 image
-[source,console]
-$: bitbake qt5-image
-
 You can also build extended images (from meta-somlabs-extra):
 [source,console]
 $: bitbake console-extraimage
